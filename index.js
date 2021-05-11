@@ -39,6 +39,15 @@ submit.addEventListener("click", function() {
     inputValue.value = "";
 });
 
+inputValue.addEventListener('keydown', function(event) {
+    if(event.code == "Enter") {
+        arr.push(inputValue.value.trim().toLowerCase());
+
+        check();
+        inputValue.value = "";
+    }
+})
+
 // function showMatches(array){
 //     const count = {}
 //     const result = []

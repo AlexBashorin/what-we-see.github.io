@@ -41,16 +41,19 @@ main {
     }
     .users-bar {
         display: none;
+        border: none;
     }
     .result-bar {
         display: flex;
         justify-content: center;
         align-items: center;
-        border-left: 0;
-        border-top: 2px solid rgb(82, 116, 228);
+        border: none;
     }
     h2 {
         margin-top: 0;
+    }
+    input::placeholder {
+        font-size: .8em;
     }
 }
 
@@ -107,6 +110,7 @@ article {
 input::placeholder {
     color: rgb(140, 162, 235);
     font-weight: 300;
+    font-size: 1.3em;
 }
 
 .submit-button {
@@ -116,6 +120,7 @@ input::placeholder {
     border: none;
     outline: none;
     margin-top: 30px;
+    margin-bottom: 30px;
     font-family: roboto;
     color: white;
     font-size: 1.1em;
@@ -131,7 +136,7 @@ input::placeholder {
 .result-bar {
     flex: 1;
     padding: 10px 30px 30px 30px;
-    border-left: 2px solid rgb(82, 116, 228);
+    /* border-left: 2px solid rgb(82, 116, 228); */
     display: flex;
     flex-direction: column;
 }
@@ -159,6 +164,13 @@ h2 {
     padding-left: 0;
     margin: 0;
 }
+.result-list :nth-child(n) {
+    border-bottom: 2px solid rgb(82, 116, 228);
+    margin-bottom: 16px;
+}
+/* .result-list:nth-child(2n) {
+    background-color: aquamarine;
+} */
 
 /* FOOTER */
 footer {
