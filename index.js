@@ -32,7 +32,7 @@ submit.addEventListener("click", function() {
     let userValue = inputValue.value;
     let low = userValue.toLowerCase();
 
-    arr.push(low.trim().toLowerCase());
+    arr.push(low.trim().split(',').join(',').toLowerCase());
     
     check();
     // let check = arr.forEach(elem => elem === inputValue.value ? addToList() : alert('no'));
