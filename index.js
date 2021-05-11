@@ -20,7 +20,10 @@ function check() {
     let li = document.createElement('LI');
     let ul = document.querySelector('.result-list');
 
-    if(inputValue.value != dupl(arr)) {
+    // let newAr = arr.map(e => e.trim().toLowerCase());
+    let correctInput = inputValue.value.trim().toLowerCase();
+
+    if(correctInput != dupl(arr)) {
         return "";
     } else {
         ul.appendChild(li);
@@ -29,14 +32,10 @@ function check() {
 }
 
 submit.addEventListener("click", function() {
-    let userValue = inputValue.value;
-    let low = userValue.toLowerCase();
-
-    arr.push(low.trim().split(',').join(',').toLowerCase());
+    let userValue = inputValue.value.trim().toLowerCase();
+    arr.push(userValue);
     
     check();
-    // let check = arr.forEach(elem => elem === inputValue.value ? addToList() : alert('no'));
-
     inputValue.value = "";
 });
 
