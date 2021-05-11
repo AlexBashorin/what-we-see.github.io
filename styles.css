@@ -36,7 +36,7 @@ main {
     }
     .main-input {
         margin-top: 60px;
-        max-width: 400px;
+        max-width: 60vw;
     }
     .users-bar {
         display: none;
@@ -44,7 +44,12 @@ main {
     .result-bar {
         display: flex;
         justify-content: center;
-        border-left: none;
+        align-items: center;
+        border-left: 0;
+        border-top: 2px solid rgb(82, 116, 228);
+    }
+    h2 {
+        margin-top: 0;
     }
 }
 
@@ -126,6 +131,8 @@ input::placeholder {
     flex: 1;
     padding: 10px 30px 30px 30px;
     border-left: 2px solid rgb(82, 116, 228);
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
@@ -145,15 +152,10 @@ h2 {
     /* visibility: visible; */
 }
 
-.ul-result {
+.result-list {
     list-style: none;
     padding-left: 0;
     margin: 0;
-}
-
-.li-result {
-    padding-left: 0;
-    /* display: none; */
 }
 
 /* FOOTER */

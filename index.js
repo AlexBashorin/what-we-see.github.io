@@ -16,35 +16,26 @@ function addToList() {
 }
 
 function check() {
-    // let lastItem = arr[arr.length - 1];
-    // if(arr.includes(inputValue.value) === true) {
-    //     resultSpace.innerHTML = inputValue.value;
-    //     // resultSpace.insertAdjacentText('afterbegin', inputValue.value);
-    // }
-    let lastelem = inputValue.value;
-    let dupl = array => array.filter((item, index) => array.indexOf(item) != index);
-    resultSpace.innerHTML = dupl(arr);
+    let dupl = array => array.filter((item, index) => array.indexOf(item) != index).splice(-1);
+    let li = document.createElement('LI');
+    let ul = document.querySelector('.result-list');
+
+    if(inputValue.value != dupl(arr)) {
+        return "";
+    } else {
+        ul.appendChild(li);
+        li.innerText = dupl(arr);
+    }
 }
 
 submit.addEventListener("click", function() {
-    arr.push(inputValue.value);
+    let userValue = inputValue.value;
+    let low = userValue.toLowerCase();
+
+    arr.push(low.trim().toLowerCase());
+    
     check();
     // let check = arr.forEach(elem => elem === inputValue.value ? addToList() : alert('no'));
-
-    // if(check) {
-    //     addToList();
-    // } else {
-    //     alert('no match');
-    // }
-
-    // for(let i=0; i<arr.length; i++) {
-    //     if(arr.length === 0 || arr[i] === inputValue.value) {
-    //         addToList()
-    //     } else if(arr[i] != inputValue.value) {
-    //         // let lastchild = resultSpace.lastChild;
-    //         // lastchild.style.display = 'none';
-    //     }
-    // }
 
     inputValue.value = "";
 });
