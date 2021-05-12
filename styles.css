@@ -133,6 +133,19 @@ input::placeholder {
     transform: translateX(7px);
 }
 
+.clear-list {
+    width: 250px;
+    height: 44px;
+    background-color: rgb(82, 116, 228);
+    border: none;
+    outline: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: roboto;
+    color: white;
+    font-size: 1.1em;
+}
+
 .result-bar {
     flex: 1;
     padding: 10px 30px 30px 30px;

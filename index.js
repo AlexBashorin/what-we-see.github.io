@@ -1,6 +1,7 @@
 const resultSpace = document.querySelector('.result-space');
 const inputValue = document.querySelector('.main-input');
 const submit = document.querySelector('.submit-button');
+const clearList = document.querySelector('.clear-list');
 
 let arr = [];
 
@@ -37,6 +38,12 @@ submit.addEventListener("click", function() {
     
     check();
     inputValue.value = "";
+
+    localStorage.setItem(arr, JSON.stringify(arr));
+    arr = JSON.parse(localStorage.getItem(arr));
+    removeItem(arr);
+    // localStorage.setItem(resultSpace, inputValue.value);
+    // resultSpace = JSON.parse(localStorage.getItem(inputValue.value));
 });
 
 inputValue.addEventListener('keydown', function(event) {
@@ -46,7 +53,24 @@ inputValue.addEventListener('keydown', function(event) {
         check();
         inputValue.value = "";
     }
+});
+
+clearList.addEventListener('click', function() {
+    
+    // removeItem(arr);
 })
+
+// LOCAL-STORAGE
+// localStorage.setItem(arr, JSON.stringify(arr));
+// arr = JSON.parse(localStorage.getItem("arr"));
+
+// try {
+//     localStorage.setItem('myKey', arr);
+//   } catch (e) {
+//     if (e == QUOTA_EXCEEDED_ERR) {
+//      alert('Превышен лимит');
+//     }
+//   }
 
 // function showMatches(array){
 //     const count = {}
