@@ -113,8 +113,16 @@ input::placeholder {
     font-size: 1.3em;
 }
 
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 480px;
+    height: 44px;
+}
+
 .submit-button {
-    width: 250px;
+    width: 220px;
     height: 44px;
     background-color: rgb(82, 116, 228);
     border: none;
@@ -124,19 +132,21 @@ input::placeholder {
     font-family: roboto;
     color: white;
     font-size: 1.1em;
+    cursor: pointer;
 }
 
 .submit-button:hover {
     box-shadow:
     -5px 5px black;
-    -webkit-transform: translateX(7px);
-    transform: translateX(7px);
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+    /* transform: translateY(-3px); */
 }
 
 .clear-list {
-    width: 250px;
+    width: 220px;
     height: 44px;
-    background-color: rgb(82, 116, 228);
+    background-color: rgb(228, 87, 82);
     border: none;
     outline: none;
     margin-top: 30px;
@@ -144,6 +154,14 @@ input::placeholder {
     font-family: roboto;
     color: white;
     font-size: 1.1em;
+    cursor: pointer;
+}
+
+.clear-list:hover {
+    box-shadow:
+    -5px 5px black;
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 .result-bar {

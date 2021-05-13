@@ -5,15 +5,9 @@ const clearList = document.querySelector('.clear-list');
 
 let arr = [];
 
-function addToList() {
-    let ul = document.createElement('UL');
-    let li = document.createElement('LI');
-    ul.classList.add('ul-result');
-    li.classList.add('li-result');
-
-    ul.appendChild(li);
-    li.insertAdjacentText('afterbegin', inputValue.value);
-    resultSpace.appendChild(ul);
+function mySave() {
+    localStorage.setItem("resSpace", inputValue.value);
+    saveRes = localStorage.getItem("resSpace");
 }
 
 function check() {
@@ -21,16 +15,25 @@ function check() {
     let li = document.createElement('LI');
     let ul = document.querySelector('.result-list');
 
-    // let newAr = arr.map(e => e.trim().toLowerCase());
     let correctInput = inputValue.value.trim().toLowerCase();
+    
+    local();
+    mySave();
 
-    if(correctInput != dupl(arr)) {
+    if(correctInput != dupl(newArr)) {
         return "";
     } else {
+        resultSpace.innerHTML = saveRes;
         ul.appendChild(li);
-        li.innerText = dupl(arr);
+        li.innerText = dupl(newArr);
     }
 }
+
+function local() {
+    localStorage.setItem("myArray", JSON.stringify(arr));
+    newArr = JSON.parse(localStorage.getItem("myArray"));
+}
+
 
 submit.addEventListener("click", function() {
     let userValue = inputValue.value.trim().toLowerCase();
@@ -38,12 +41,7 @@ submit.addEventListener("click", function() {
     
     check();
     inputValue.value = "";
-
-    localStorage.setItem(arr, JSON.stringify(arr));
-    arr = JSON.parse(localStorage.getItem(arr));
-    removeItem(arr);
-    // localStorage.setItem(resultSpace, inputValue.value);
-    // resultSpace = JSON.parse(localStorage.getItem(inputValue.value));
+    
 });
 
 inputValue.addEventListener('keydown', function(event) {
@@ -56,13 +54,11 @@ inputValue.addEventListener('keydown', function(event) {
 });
 
 clearList.addEventListener('click', function() {
-    
-    // removeItem(arr);
+    // localStorage.removeItem('arr');
+    // arr.value = "";
+    // clear();
+    localStorage.clear();
 })
-
-// LOCAL-STORAGE
-// localStorage.setItem(arr, JSON.stringify(arr));
-// arr = JSON.parse(localStorage.getItem("arr"));
 
 // try {
 //     localStorage.setItem('myKey', arr);
@@ -70,29 +66,4 @@ clearList.addEventListener('click', function() {
 //     if (e == QUOTA_EXCEEDED_ERR) {
 //      alert('Превышен лимит');
 //     }
-//   }
-
-// function showMatches(array){
-//     const count = {}
-//     const result = []
-    
-//     array.forEach(item => {
-//         if (count[item]) {
-//            count[item] +=1
-//            return
-//         }
-//         count[item] = 1
-//     })
-    
-//     for (let prop in count){
-//         if (count[prop] >=2){
-//             result.push(prop)
-//         }
-//     }
-    
-//     resultSpace.insertAdjacentText('afterbegin', count);
-//     return result;
-    
-//     }
-
-// showMatches(arr);
+// }
